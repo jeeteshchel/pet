@@ -1,0 +1,442 @@
+Jun 12, 2015 12:38:47 PM com.ibm.iotf.client.AbstractClient <init>
+FINE: {auth-token=@2)qm5RoDK)BDQA3Sy, type=LocalMQTTFx, auth-method=token, id=jeetlocmqttfx, org=gtwunk}
+Jun 12, 2015 12:38:47 PM com.ibm.iotf.client.device.DeviceClient <init>
+FINE: {auth-token=@2)qm5RoDK)BDQA3Sy, type=LocalMQTTFx, auth-method=token, id=jeetlocmqttfx, org=gtwunk}
+Org ID          = gtwunk
+Client ID       = d:gtwunk:LocalMQTTFx:jeetlocmqttfx
+Client Username = use-token-auth
+Client Password = @2)qm5RoDK)BDQA3Sy
+(Press <enter> to disconnect)
+Jun 12, 2015 12:38:47 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:38:47 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:38:47 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:39:13 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:39:13 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:39:14 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Jun 12, 2015 12:39:15 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:39:15 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:39:14.990+0530","d":"{\"t\":40}"}
+Jun 12, 2015 12:39:15 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:39:14.990+0530","d":"{\"t\":40}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:39:18 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:39:18 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:39:18 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:39:18 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:39:45 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:39:45 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:39:45 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:39:48 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:39:48.248+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:39:48 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:39:48.248+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:39:53 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:39:53.214+05:30] blink: {"temp":"35"}
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:39:53 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:39:53.214+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:39:55 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:39:55 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:39:55.040+0530","d":"{\"t\":56}"}
+Jun 12, 2015 12:39:55 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:39:55.040+0530","d":"{\"t\":56}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:39:55 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:39:55 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:39:55 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:39:55 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:39:58 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:39:58 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:39:58 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:03 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:40:03.230+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:03 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:40:03.230+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:05 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:40:05 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:40:05.041+0530","d":"{\"t\":33}"}
+Jun 12, 2015 12:40:05 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:40:05.041+0530","d":"{\"t\":33}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:05 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:40:05 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:40:05 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:40:05 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:40:07 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:40:07 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:40:07 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:08 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:40:08.229+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:08 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:40:08.229+05:30] blink: {"temp":"35"}
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:13 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:40:13.222+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:13 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:40:13.222+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:15 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:40:15 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:40:15.049+0530","d":"{\"t\":50}"}
+Jun 12, 2015 12:40:15 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:40:15.049+0530","d":"{\"t\":50}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:15 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:40:15 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:40:15 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:40:15 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:40:17 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:40:17 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:40:17 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Jun 12, 2015 12:40:18 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:40:18.226+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:18 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:40:18.226+05:30] blink: {"temp":"35"}
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:23 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:40:23.239+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:23 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:40:23.239+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:25 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:40:25 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:40:25.066+0530","d":"{\"t\":52}"}
+Jun 12, 2015 12:40:25 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:40:25.066+0530","d":"{\"t\":52}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:25 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:40:25 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:40:25 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:40:25 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:40:27 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:40:27 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:40:27 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Jun 12, 2015 12:40:28 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:40:28.251+05:30] blink: {"temp":"35"}
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:28 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:40:28.251+05:30] blink: {"temp":"35"}
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:33 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:40:33.597+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:33 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:40:33.597+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:35 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:40:35 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:40:35.080+0530","d":"{\"t\":44}"}
+Jun 12, 2015 12:40:35 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:40:35.080+0530","d":"{\"t\":44}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:35 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:40:35 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:40:35 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:40:35 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:40:37 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:40:37 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:40:37 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Jun 12, 2015 12:40:38 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:40:38.250+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:38 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:40:38.250+05:30] blink: {"temp":"35"}
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:43 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:40:43.262+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:43 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:40:43.262+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:45 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:40:45 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:40:45.081+0530","d":"{\"t\":56}"}
+Jun 12, 2015 12:40:45 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:40:45.081+0530","d":"{\"t\":56}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:45 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:40:45 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:40:45 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:40:45 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:40:49 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:40:49 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:40:49 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:53 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:40:53.291+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:53 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:40:53.291+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:40:55 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:40:55 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:40:55.099+0530","d":"{\"t\":57}"}
+Jun 12, 2015 12:40:55 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:40:55.099+0530","d":"{\"t\":57}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:40:56 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:40:56 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:40:56 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:40:56 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:41:00 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:41:00 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:41:02 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:41:04 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:41:04.175+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:41:04 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:41:04.175+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:41:05 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:41:05 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:41:05.102+0530","d":"{\"t\":32}"}
+Jun 12, 2015 12:41:05 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Jun 12, 2015 12:41:15 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:41:15 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:41:15.108+0530","d":"{\"t\":35}"}
+Jun 12, 2015 12:41:15 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:41:05.102+0530","d":"{\"t\":32}"} on topic iot-2/cmd/blink/fmt/jsonJun 12, 2015 12:41:17 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+
+Jun 12, 2015 12:41:17 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:41:17 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:41:17 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:41:33 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:41:33 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:41:35 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:41:35 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:41:35.109+0530","d":"{\"t\":48}"}
+Jun 12, 2015 12:41:35 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Jun 12, 2015 12:41:35 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Received message {"ts":"2015-06-12T12:41:35.109+0530","d":"{\"t\":48}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:41:37 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:41:37 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:41:37 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:41:37 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:41:52 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:41:52 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:41:54 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:41:54 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:41:54.572+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:41:54 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:41:54.572+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:41:55 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:41:55 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:41:55.113+0530","d":"{\"t\":31}"}
+Jun 12, 2015 12:41:55 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:41:55.113+0530","d":"{\"t\":31}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:41:55 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:41:55 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:41:55 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:41:55 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:42:02 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:42:02 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:42:03 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:42:04 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:42:04.898+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:42:04 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:42:04.898+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:42:05 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:42:05 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:42:05.118+0530","d":"{\"t\":55}"}
+Jun 12, 2015 12:42:05 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:42:05.118+0530","d":"{\"t\":55}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:42:06 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:42:06 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:42:06 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:42:06 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:42:14 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:42:14 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:42:15 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:42:15 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:42:15.124+0530","d":"{\"t\":59}"}
+Jun 12, 2015 12:42:15 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Jun 12, 2015 12:42:15 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Received message {"ts":"2015-06-12T12:42:15.124+0530","d":"{\"t\":59}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:42:16 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:42:16 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:42:16 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:42:16 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:42:21 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:42:21 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:42:23 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:42:23 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:42:23.688+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:42:23 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:42:23.688+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:42:25 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:42:25 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:42:25.129+0530","d":"{\"t\":44}"}
+Jun 12, 2015 12:42:25 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:42:25.129+0530","d":"{\"t\":44}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:42:25 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:42:25 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:42:25 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:42:25 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:42:28 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:42:28 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:42:29 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Received message {"temp":"35"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:42:35 PM com.ibm.iotf.client.device.DeviceClient messageArrived
+FINE: Event received: [2015-06-12T12:42:35.071+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:42:35 PM com.ibm.iotf.client.device.DeviceClient processCommand
+INFO: Command received [2015-06-12T12:42:35.071+05:30] blink: {"temp":"35"}
+Jun 12, 2015 12:42:35 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:42:35 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:42:35.134+0530","d":"{\"t\":44}"}
+Jun 12, 2015 12:42:35 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:42:35.134+0530","d":"{\"t\":44}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:42:38 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:42:38 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:42:38 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:42:38 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy
+Jun 12, 2015 12:42:43 PM com.ibm.iotf.client.AbstractClient connect
+INFO: Successfully connected to the IBM Internet of Things Foundation
+Jun 12, 2015 12:42:43 PM com.ibm.iotf.client.AbstractClient connect
+FINEST:  * Connection attempts: 1
+Jun 12, 2015 12:42:43 PM com.ibm.iotf.client.device.DeviceClient subscribeToCommands
+INFO: Subscribed to iot-2/cmd/+/fmt/json
+Jun 12, 2015 12:42:45 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Topic   = iot-2/evt/status/fmt/json
+Jun 12, 2015 12:42:45 PM com.ibm.iotf.client.device.DeviceClient publishEvent
+FINE: Payload = {"ts":"2015-06-12T12:42:45.140+0530","d":"{\"t\":43}"}
+Jun 12, 2015 12:42:45 PM com.ibm.iotf.client.device.DeviceClient deliveryComplete
+FINE: Delivery Complete!
+Received message {"ts":"2015-06-12T12:42:45.140+0530","d":"{\"t\":43}"} on topic iot-2/cmd/blink/fmt/json
+Jun 12, 2015 12:42:45 PM com.ibm.iotf.client.device.DeviceClient connectionLost
+INFO: Connection lost: MqttException
+Jun 12, 2015 12:42:45 PM com.ibm.iotf.client.AbstractClient connect
+FINE: Connecting to ssl://gtwunk.messaging.internetofthings.ibmcloud.com:8883 (attempt #1)...
+Jun 12, 2015 12:42:45 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Username: use-token-auth
+Jun 12, 2015 12:42:45 PM com.ibm.iotf.client.AbstractClient connect
+FINE:  * Passowrd: @2)qm5RoDK)BDQA3Sy

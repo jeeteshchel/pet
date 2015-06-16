@@ -9,8 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
-import org.eclipse.paho.client.mqttv3.util.Debug;
-
 import com.ibm.iotf.client.device.DeviceClient;
 
 public class FileEventListener implements Runnable {
@@ -18,11 +16,19 @@ public class FileEventListener implements Runnable {
 	private boolean quit = false;
 	private FileEvent fileEvent = null;
 	private Properties options = new Properties();
+	private String filePath;
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
 	protected DeviceClient client;
 	private static final Logger LOG = Logger.getLogger(FileEventListener.class.getName());
 	
 	public FileEventListener(String configFilePath) throws Exception {
-		this.fileEvent = new FileEvent();
 		this.options = DeviceClient.parsePropertiesFile(new File(configFilePath));
 		this.client = new DeviceClient(this.options);
 	}
@@ -34,7 +40,6 @@ public class FileEventListener implements Runnable {
 		this.options.put("auth-method", "token");
 		this.options.put("auth-token", "@2)qm5RoDK)BDQA3Sy");
 		this.client = new DeviceClient(this.options);
-		fileEvent = new FileEvent();
 	}
 	
 	public void quit() {
@@ -44,12 +49,11 @@ public class FileEventListener implements Runnable {
 	public void run() {
 		try {
 			client.connect();
+			fileEvent = new FileEvent(this.filePath);
 			// Send a dataset every 1 second, until we are told to quit
 			while (!quit) {
 				
-				client.publishEvent("status", fileEvent.getData().toString());
-//				Debug d = client.getMqttClient().getDebug();
-//				d.dumpClientDebug();
+				client.publishEvent("status", fileEvent.getData());
 				Thread.sleep(10000);
 			}
 			fileEvent.close();
@@ -90,6 +94,7 @@ public class FileEventListener implements Runnable {
 
 		// Start the device thread
 		FileEventListener d = new FileEventListener();
+		d.setFilePath(args[0]);
 		Thread t1 = new Thread(d);
 		t1.start();
 

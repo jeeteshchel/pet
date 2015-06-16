@@ -4,14 +4,16 @@
 package com.ibm.iotf.client.app;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 /**
  * @author jeetesh
@@ -19,16 +21,26 @@ import com.google.gson.JsonObject;
  */
 public class FileEvent {
 	
+	private static final Logger LOG = Logger.getLogger(FileEvent.class.getName());
 	private BufferedReader br;
 	private String filePath;
 	private int currentRecord;
 	
-//	public FileEvent(String filePath) throws FileNotFoundException
-//	{
-//		this.filePath = filePath;
-//		fis = new FileInputStream(filePath);
-//		Files.newBufferedReader(FileSystems.getDefault()., Charset.forName("UTF-8"));
-//	}
+	public FileEvent(String filePath) throws FileNotFoundException
+	{
+		this.filePath = filePath;
+		this.br = getFileStream(filePath);
+	}
+	
+	public BufferedReader getFileStream (String filePath) {
+		BufferedReader br = null;
+		try{
+			 br = Files.newBufferedReader(Paths.get(this.filePath), Charset.forName("utf-8"));
+		}catch(Exception io) {
+			LOG.log(Level.SEVERE, io.getMessage(), io);
+		}
+		return br;
+	}
 //	
 //	public FileEvent()
 //	{
@@ -37,17 +49,26 @@ public class FileEvent {
 	
 	JsonObject getData()
 	{
-		JsonObject jo = new JsonObject();
-		jo.addProperty("t", Math.round((Math.random()+1)*30));
+		String line = "";
+		try{
+		if(br == null || (line = br.readLine()) == null) {
+			this.br = getFileStream (this.filePath);
+		}
+		line = br.readLine();
+		}catch(Exception e){
+			LOG.log(Level.SEVERE, e.getMessage(), e);
+		}
+		JsonObject jo = new JsonParser().parse(line).getAsJsonObject();
 		return jo;
 	}
 	
 	void close() throws IOException
 	{
-//		if(fis != null) {
-//			fis.close();
-//		}
-//		currentRecord = 0;
+		try{
+			if(br != null) br.close();
+		}catch (Exception io){
+			LOG.log(Level.SEVERE, io.getMessage(), io);
+		}
 	}
 
 }

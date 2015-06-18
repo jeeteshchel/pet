@@ -54,7 +54,7 @@ public class FileEventListener implements Runnable {
 			while (!quit) {
 				
 				client.publishEvent("status", fileEvent.getData());
-				Thread.sleep(10000);
+				Thread.sleep(30000);
 			}
 			fileEvent.close();
 			// Once told to stop, cleanly disconnect from the service

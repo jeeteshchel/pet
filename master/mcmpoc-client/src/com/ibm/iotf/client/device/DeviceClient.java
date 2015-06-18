@@ -1,6 +1,8 @@
 package com.ibm.iotf.client.device;
 
 import java.nio.charset.Charset;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Logger;
@@ -15,6 +17,7 @@ import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.ibm.iotf.client.AbstractClient;
 
 
@@ -31,6 +34,11 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 	private static final Pattern COMMAND_PATTERN = Pattern.compile("iot-2/cmd/(.+)/fmt/(.+)");
 	
 	private CommandCallback commandCallback = null;
+	
+	String override;
+	
+	protected final static JsonParser JSON_PARSER = new JsonParser();
+	private static final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a");
 	
 	/**
 	 * Create a device client for the IBM Internet of Things Foundation. <br>
@@ -143,12 +151,17 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 		if (!isConnected()) {
 			return false;
 		}
+		if(override != null){
+			data = override;
+//			override = null;
+		}
 		JsonObject payload = new JsonObject();
-		
-		String timestamp = ISO8601_DATE_FORMAT.format(new Date());
-		payload.addProperty("ts", timestamp);
+		String runDateTime = sdf.format(new Date());
+//		String timestamp = ISO8601_DATE_FORMAT.format(new Date());
+//		payload.addProperty("ts", timestamp);
 		
 		JsonElement dataElement = gson.toJsonTree(data);
+		dataElement.getAsJsonObject().addProperty("RUN_DATE_TIME", runDateTime);
 		payload.add("d", dataElement);
 		
 		String topic = "iot-2/evt/" + event + "/fmt/json";
@@ -233,7 +246,16 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 	@Override
 	public void processCommand(Command cmd) {
 		LOG.info("Command received "+cmd.toString());
-		
+		JsonObject payloadJson = JSON_PARSER.parse(cmd.getPayload().replaceAll("\\", "")).getAsJsonObject();
+		if (payloadJson.has("d")) {
+			this.override = payloadJson.get("d").getAsJsonObject().toString();
+
+		} else {
+			this.override = payloadJson.toString();
+		}
+
+		LOG.info("Sending event "+cmd.toString());		
+		publishEvent("status", override);
 	}
 	
 }

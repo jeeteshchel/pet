@@ -11,7 +11,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.eclipse.paho.mqtt.java"/>
 	<classpathentry kind="lib" path="C:/Users/IBM_ADMIN/git/iot-java/lib/gson-2.2.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/IBM_ADMIN/git/iot-java/lib/joda-time-2.6.jar"/>
 	<classpathentry kind="lib" path="C:/Users/IBM_ADMIN/git/iot-java/lib/org.eclipse.paho.client.mqttv3.jar"/>

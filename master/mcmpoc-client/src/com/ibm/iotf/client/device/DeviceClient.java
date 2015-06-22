@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -35,7 +36,7 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 	
 	private CommandCallback commandCallback = null;
 	
-	String override;
+	Object override;
 	
 	protected final static JsonParser JSON_PARSER = new JsonParser();
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a");
@@ -153,7 +154,7 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 		}
 		if(override != null){
 			data = override;
-//			override = null;
+			override = null;
 		}
 		JsonObject payload = new JsonObject();
 		String runDateTime = sdf.format(new Date());
@@ -181,6 +182,9 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 		} catch (MqttException e) {
 			e.printStackTrace();
 			return false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
 		return true;
 	}
@@ -194,7 +198,7 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 	 *            Throwable which caused the connection to get lost
 	 */
 	public void connectionLost(Throwable exception) {
-		LOG.info("Connection lost: " + exception.getMessage());
+		LOG.log(Level.INFO, "Connection lost: ", exception);
 		connect();
 	}
 	
@@ -245,17 +249,17 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 
 	@Override
 	public void processCommand(Command cmd) {
-		LOG.info("Command received "+cmd.toString());
-		JsonObject payloadJson = JSON_PARSER.parse(cmd.getPayload().replaceAll("\\", "")).getAsJsonObject();
+		LOG.info("Command received "+cmd.getPayload());
+		JsonObject payloadJson = JSON_PARSER.parse(cmd.getPayload().replaceAll("\\\\", "")).getAsJsonObject();
 		if (payloadJson.has("d")) {
-			this.override = payloadJson.get("d").getAsJsonObject().toString();
+			this.override = payloadJson.get("d").getAsJsonObject();
 
 		} else {
-			this.override = payloadJson.toString();
+			this.override = payloadJson;
 		}
 
-		LOG.info("Sending event "+cmd.toString());		
-		publishEvent("status", override);
+		LOG.info("Sending event "+cmd.getPayload());		
+//		publishEvent("status", override);
 	}
 	
 }

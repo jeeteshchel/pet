@@ -52,9 +52,12 @@ public class FileEvent {
 		String line = "";
 		try{
 		if(br == null || (line = br.readLine()) == null) {
+			if(br != null)br.close();
 			this.br = getFileStream (this.filePath);
+			line = br.readLine();
+			
 		}
-		line = br.readLine();
+//		line = br.readLine();
 		}catch(Exception e){
 			LOG.log(Level.SEVERE, e.getMessage(), e);
 		}

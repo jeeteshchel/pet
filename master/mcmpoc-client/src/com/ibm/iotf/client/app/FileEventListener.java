@@ -17,6 +17,7 @@ public class FileEventListener implements Runnable {
 	private FileEvent fileEvent = null;
 	private Properties options = new Properties();
 	private String filePath;
+	private int delay;
 	public String getFilePath() {
 		return filePath;
 	}
@@ -54,7 +55,7 @@ public class FileEventListener implements Runnable {
 			while (!quit) {
 				
 				client.publishEvent("status", fileEvent.getData());
-				Thread.sleep(10000);
+				Thread.sleep(delay);
 			}
 			fileEvent.close();
 			// Once told to stop, cleanly disconnect from the service
@@ -95,6 +96,7 @@ public class FileEventListener implements Runnable {
 		// Start the device thread
 		FileEventListener d = new FileEventListener();
 		d.setFilePath(args[0]);
+		d.delay = Integer.parseInt(args[1]);
 		Thread t1 = new Thread(d);
 		t1.start();
 

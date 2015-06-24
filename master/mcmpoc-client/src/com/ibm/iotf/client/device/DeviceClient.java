@@ -227,7 +227,7 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 			 * as without a callback there is nothing to process the generated
 			 * command.
 			 */
-			LOG.info("Received message "+msg+" on topic "+topic);
+			LOG.info("Received message to BREACH THRESHOLD");
 			Matcher matcher = COMMAND_PATTERN.matcher(topic);
 			if (matcher.matches()) {
 				String command = matcher.group(1);
@@ -249,7 +249,7 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 
 	@Override
 	public void processCommand(Command cmd) {
-		LOG.info("Command received "+cmd.getPayload());
+//		LOG.info("Command received to BREACH THRESHOLD");
 		JsonObject payloadJson = JSON_PARSER.parse(cmd.getPayload().replaceAll("\\\\", "")).getAsJsonObject();
 		if (payloadJson.has("d")) {
 			this.override = payloadJson.get("d").getAsJsonObject();

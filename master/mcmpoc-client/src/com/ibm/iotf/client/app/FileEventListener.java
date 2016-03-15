@@ -3,6 +3,7 @@ package com.ibm.iotf.client.app;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -14,6 +15,7 @@ import com.ibm.iotf.client.device.DeviceClient;
 public class FileEventListener implements Runnable {
 	
 	private boolean quit = false;
+	public static boolean start = false;
 	private FileEvent fileEvent = null;
 	private Properties options = new Properties();
 	private String filePath;
@@ -34,12 +36,23 @@ public class FileEventListener implements Runnable {
 		this.client = new DeviceClient(this.options);
 	}
 
+	public FileEventListener(File configFilePath) throws Exception {
+		this.options = DeviceClient.parsePropertiesFile(configFilePath);
+		this.client = new DeviceClient(this.options);
+	}
+
 	public FileEventListener() throws Exception {
-		this.options.put("org", "gtwunk");
-		this.options.put("type", "LocalMQTTFx");
-		this.options.put("id", "jeetlocmqttfx");
+//		this.options.put("org", "gtwunk");
+//		this.options.put("type", "LocalMQTTFx");
+//		this.options.put("id", "jeetlocmqttfx");
+//		this.options.put("auth-method", "token");
+//		this.options.put("auth-token", "@2)qm5RoDK)BDQA3Sy");
+		this.options.put("org", "i4nozy");
+		this.options.put("type", "ContiFlex");
+		this.options.put("id", "jeetsim");
 		this.options.put("auth-method", "token");
-		this.options.put("auth-token", "@2)qm5RoDK)BDQA3Sy");
+		this.options.put("auth-token", "c4wjLrspjhCkDCEI*x");
+		
 		this.client = new DeviceClient(this.options);
 	}
 	
@@ -53,8 +66,13 @@ public class FileEventListener implements Runnable {
 			fileEvent = new FileEvent(this.filePath);
 			// Send a dataset every 1 second, until we are told to quit
 			while (!quit) {
-				
-				client.publishEvent("status", fileEvent.getData());
+				LOG.info("Is started "+start);
+				if(start) {
+					client.publishEvent("status", fileEvent.getData(), options);
+				}
+				else {
+					if (!fileEvent.isClosed()) fileEvent.close();
+				}
 				Thread.sleep(delay);
 			}
 			fileEvent.close();
@@ -94,7 +112,11 @@ public class FileEventListener implements Runnable {
 		}
 
 		// Start the device thread
-		FileEventListener d = new FileEventListener();
+		FileEventListener d = null;
+		if(args.length > 2 && args[2] != null && args[2].trim().length() != 0) {
+			
+		 d = new FileEventListener(Paths.get(args[2]).toFile());
+		} else d = new FileEventListener();
 		d.setFilePath(args[0]);
 		d.delay = Integer.parseInt(args[1]);
 		Thread t1 = new Thread(d);

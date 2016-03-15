@@ -20,6 +20,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.ibm.iotf.client.AbstractClient;
+import com.ibm.iotf.client.app.FileEventListener;
 
 
 /**
@@ -131,8 +132,8 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 	 *            Object to be added to the payload as the dataset
 	 * @return Whether the send was successful.
 	 */
-	public boolean publishEvent(String event, Object data) {
-		return publishEvent(event, data, 0);
+	public boolean publishEvent(String event, Object data, Properties config) {
+		return publishEvent(event, data, 0, config);
 	}
 
 	/**
@@ -148,7 +149,7 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 	 *            Quality of Service - should be 0, 1 or 2
 	 * @return Whether the send was successful.
 	 */	
-	public boolean publishEvent(String event, Object data, int qos) {
+	public boolean publishEvent(String event, Object data, int qos, Properties config) {
 		if (!isConnected()) {
 			return false;
 		}
@@ -162,7 +163,22 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 //		payload.addProperty("ts", timestamp);
 		
 		JsonElement dataElement = gson.toJsonTree(data);
-		dataElement.getAsJsonObject().addProperty("RUN_DATE_TIME", runDateTime);
+		JsonObject jsonRootObject = dataElement.getAsJsonObject();
+		String timeFieldName = null;
+		if((timeFieldName = config.getProperty("TIME_FIELD_NAME")) != null) {
+			jsonRootObject.addProperty(timeFieldName, runDateTime);
+		}else {
+			jsonRootObject.addProperty("RUN_DATE_TIME", runDateTime);
+		}
+		if(config.getProperty("assetnum") != null) {
+			if(jsonRootObject.has("CAR_ID")) jsonRootObject.remove("CAR_ID");
+			jsonRootObject.addProperty("CAR_ID", config.getProperty("assetnum"));
+		}
+		if(config.getProperty("siteid") != null) {
+				if(jsonRootObject.has("SITE_ID")) jsonRootObject.remove("SITE_ID");
+				jsonRootObject.addProperty("SITE_ID", config.getProperty("siteid"));
+		}
+		
 		payload.add("d", dataElement);
 		
 		String topic = "iot-2/evt/" + event + "/fmt/json";
@@ -171,6 +187,9 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 		LOG.fine("Payload = " + payload.toString());
 		
 		MqttMessage msg = new MqttMessage(payload.toString().getBytes(Charset.forName("UTF-8")));
+		if(config.getProperty("qos") != null) {
+			qos = Integer.parseInt(config.getProperty("qos"));
+		}
 		msg.setQos(qos);
 		msg.setRetained(false);
 		
@@ -249,6 +268,10 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 
 	@Override
 	public void processCommand(Command cmd) {
+		LOG.info("Command received "+cmd.getCommand() + "_" + cmd.toString());
+		if(cmd.getCommand().contains("startcan")) FileEventListener.start = true;
+		else if(cmd.getCommand().contains("stopcan")) FileEventListener.start = false;
+		else {
 //		LOG.info("Command received to BREACH THRESHOLD");
 		JsonObject payloadJson = JSON_PARSER.parse(cmd.getPayload().replaceAll("\\\\", "")).getAsJsonObject();
 		if (payloadJson.has("d")) {
@@ -258,7 +281,8 @@ public class DeviceClient extends AbstractClient implements MqttCallback, Comman
 			this.override = payloadJson;
 		}
 
-		LOG.info("Sending event "+cmd.getPayload());		
+		LOG.info("Sending event "+cmd.getPayload());	
+		}
 //		publishEvent("status", override);
 	}
 	

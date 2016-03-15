@@ -32,9 +32,14 @@ public class FileEvent {
 		this.br = getFileStream(filePath);
 	}
 	
+	public boolean isClosed() {
+		return (br == null);
+	}
+	
 	public BufferedReader getFileStream (String filePath) {
 		BufferedReader br = null;
 		try{
+			
 			 br = Files.newBufferedReader(Paths.get(this.filePath), Charset.forName("utf-8"));
 		}catch(Exception io) {
 			LOG.log(Level.SEVERE, io.getMessage(), io);
@@ -69,6 +74,7 @@ public class FileEvent {
 	{
 		try{
 			if(br != null) br.close();
+			br = null;
 		}catch (Exception io){
 			LOG.log(Level.SEVERE, io.getMessage(), io);
 		}
